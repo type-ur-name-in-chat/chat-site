@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Chat Slide</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .slide {
+      background: white;
+      width: 400px;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    #chat {
+      height: 200px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      overflow-y: auto;
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 70%;
+      padding: 8px;
+    }
+
+    button {
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slide">
+    <h3>Chat</h3>
+    <div id="chat"></div>
+
+    <input id="message" placeholder="Type here..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+  <script>
+    function sendMessage() {
+      let input = document.getElementById("message");
+      let chat = document.getElementById("chat");
+
+      if (input.value !== "") {
+        chat.innerHTML += "<p><b>You:</b> " + input.value + "</p>";
+        input.value = "";
+        chat.scrollTop = chat.scrollHeight;
+      }
+    }
+  </script>
+
+</body>
+</html>
